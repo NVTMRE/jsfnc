@@ -17,7 +17,7 @@
   Recognizes multiple common season and episode naming formats (e.g., `S01E02`, `1x02`, `Season 01 Episode 02`).
 
 - **Two Modes of Operation**  
-  - `rename` (default): Renames files in place.
+  - `rename` (default): Renames files in place.  
   - `structure`: Creates a new organized directory structure by copying files.
 
 ## ⚙️ Requirements
@@ -38,12 +38,39 @@ Or simply download the `.py` files and place them in one directory.
 **Dependencies:**  
 No external libraries are required — only Python's standard library is used.
 
+## 🔨 Build
+
+You can build a standalone executable or install JSFNC as a package:
+
+1. **Using PyInstaller (standalone executable)**  
+   A `build.py` script is provided to create a single-file executable. Run:
+   ```bash
+   python build.py
+   ```
+   This will generate a `JSFNC` executable in the `dist/` folder, including the `README.md` as data.
+
+2. **Packaging and Installation with `setup.py`**  
+   To install JSFNC as a console script, run:
+   ```bash
+   pip install .
+   ```
+   This will install the `jsfnc` command so you can run:
+   ```bash
+   jsfnc -n "Series Name" [options]
+   ```
+
 ## 🚀 Usage
 
 Run the program from the command line using the `main.py` script:
 
 ```bash
 python main.py -n "Series Name" [options]
+```
+
+Or, if installed via `setup.py`:
+
+```bash
+jsfnc -n "Series Name" [options]
 ```
 
 ### Arguments
@@ -69,10 +96,22 @@ Or in the current directory:
 python main.py -n "My Awesome Show"
 ```
 
+If installed via `setup.py`:
+
+```bash
+jsfnc -n "My Awesome Show" -p "/path/to/your/episodes"
+```
+
 ### Create an organized directory structure:
 
 ```bash
 python main.py -n "Another Great Series" -p "/path/to/your/episodes" -m structure -t "/mnt/tv_shows"
+```
+
+Or with installed command:
+
+```bash
+jsfnc -n "Another Great Series" -p "/path/to/your/episodes" -m structure -t "/mnt/tv_shows"
 ```
 
 ### Directory Structure (structure mode):
